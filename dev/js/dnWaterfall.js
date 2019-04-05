@@ -163,13 +163,18 @@
           this.column.parents('body').prepend(mask).find(mask).prepend(box).find(box).prepend(close);
 
           let imgObj = new Image() ;
+          Object.assign(imgObj.style,{
+              width: "50%",
+              maxHeight: "90%",
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              objectFit: "scale-down",
+          });
+          
           $(imgObj).on('load error', function(){
-            let wd = imgObj.width ,
-                hg = imgObj.height ;
-            box.prepend(imgObj).css({
-              "marginLeft" : -wd / 2 ,
-              "marginTop"  : -hg / 2
-            });
+            box.prepend(imgObj);
           });
           imgObj.src = imgSrc;
 
