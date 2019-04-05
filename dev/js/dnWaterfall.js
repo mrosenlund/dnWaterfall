@@ -38,6 +38,11 @@
           if(self.defalutCol === self.attrVal[0]) return ;
           self.init();
           self.defalutCol= self.attrVal[0];
+          
+          $(self.container.find(".waterfall-area")).on("click",function(){
+            let src = $(this).find('img.waterfall-pic').attr('src');
+            self.slide(src);
+          });
         });
 
         $(window).on('scroll',function(){
